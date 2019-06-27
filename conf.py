@@ -34,7 +34,7 @@ extensions = [
     'directives',
     'intermanual',
     'fasthtml',
-    'tabs',
+    'tabs', 
     'landing_cards',
     'source_constants',
     'xmlrole'
