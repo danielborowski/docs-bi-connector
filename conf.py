@@ -28,7 +28,7 @@ sys.path.append(os.path.join(conf.paths.projectroot, conf.paths.buildsystem, 'sp
 needs_sphinx = '1.0'
 
 extensions = [ 
-    'sphinx.ext.extlinks',
+    'sphinx.ext.extlinks', 
     'sphinx.ext.todo',
     'mongodb',  
     'directives',
