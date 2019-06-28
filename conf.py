@@ -6,7 +6,7 @@
 # This file is execfile()d with the current directory set to its containing dir.
 
 import base64
-import sys   
+import sys    
 import os.path  
 import datetime 
  
