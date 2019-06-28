@@ -30,7 +30,7 @@ needs_sphinx = '1.0'
 extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.todo',
-    'mongodb',
+    'mongodb', 
     'directives',
     'intermanual',
     'fasthtml',
