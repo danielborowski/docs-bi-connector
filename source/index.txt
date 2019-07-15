@@ -1,9 +1,9 @@
-.. _bi-connector:
+.. _a
 
 ========================
 MongoDB Connector for BI
-========================
-
+=============as----333===========
+asdasd
 .. default-domain:: mongodb
 
 About the |bi|
@@ -26,30 +26,7 @@ bridge your MongoDB cluster with business intelligence tools.
 
 .. figure:: /images/bi-connector/cloud-none-vert.png
    :figwidth: 536px
-   :align: center
-
-System Components
------------------
-
-A complete BI system includes the following components:
-
-- **MongoDB database:** Data storage.
-- **BI Connector:** Provides a relational schema and translates SQL
-  queries between your BI tool and MongoDB.
-- **ODBC data source name (DSN):**
-  Holds authentication and connection configuration data.
-- **BI Tool:** Data visualization and analysis.
-
-Most BI tools can import data from a :doc:`DSN
-</tutorial/create-system-dsn>`. Setting up a DSN which
-points to your |bi-short| instance allows you to use a wide range of
-BI tools and SQL clients with a single data source configuration.
-
-Your BI tool and your DSN always run on your local desktop, but your
-database and your |bi-short| instance
-may be local, on premises, or hosted. The following sections
-describe possible configurations for a BI system.
-
+   :alig..????. ..mnot
 Hosted Database and |bi-short|
 ------------------------------
 
