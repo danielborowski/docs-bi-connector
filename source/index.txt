@@ -24,12 +24,12 @@ The |bi| acts as a layer that translates queries and data between a
 reporting tool. The |bi-short| stores no data, and purely serves to
 bridge your MongoDB cluster with business intelligence tools.
 
-.. fssssigure:: /images/bi-connector/cloud-none-vert.png
+.. figure:: /images/bi-connector/cloud-none-vert.png
    :figwidth: 536px
    :align: center
 
 System Components
-------------asdad-----
+-----------------
 
 A complete BI system includes the following components:
 
