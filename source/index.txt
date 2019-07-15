@@ -1,7 +1,7 @@
 .. _bi-connector:
 
 ========================
-MongoDB EFSEFSDFSDFSDGF for BI
+MongoDB Connector for BI
 ========================
 
 .. default-domain:: mongodb
