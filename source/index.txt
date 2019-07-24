@@ -23,9 +23,9 @@ reporting tool. The |bi-short| stores no data, and purely serves to
 bridge your MongoDB cluster with business intelligence tools.
 
 Hosted Database and |bi-short|
-------------------------------
+-------------------asdasd-----------
 
-.. note::
+.. note::.;.
 
     If you don’t want to install and manage the |bi-short|, you can use MongoDB
     Atlas, our fully-managed database-as-a-service. Databases hosted on Atlas
