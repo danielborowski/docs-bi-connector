@@ -1,3 +1,8 @@
 #!/bin/sh
+#pwd;
+#make html
+
 pwd;
-make html
+cd snooty;
+npm run build;
+make stage;
