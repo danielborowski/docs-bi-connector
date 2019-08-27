@@ -1,5 +1,6 @@
 #!/bin/sh
 pwd;
-cd /snooty;
+cd ../snooty;
+ls;
 npm run build;
 make stage;
