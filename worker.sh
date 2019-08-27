@@ -1,5 +1,5 @@
 #!/bin/sh
 pwd;
-cd ../;
-pwd;
-ls;
+cd /snooty;
+npm run build;
+make stage;
