@@ -7,7 +7,7 @@ echo $pwd
 echo $PATH
 ls /home/docsworker/.local/bin
 echo `which snooty`
+snooty build $pwd
 #snooty 
-#snooty build $pwd
 #ls
 #npm run build
