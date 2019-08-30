@@ -4,7 +4,7 @@ cd ../
 pwd
 ls
 echo $pwd
-snooty
+echo snooty 
 #snooty build $pwd
 #ls
 #npm run build
