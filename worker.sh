@@ -3,6 +3,6 @@ pwd=$(pwd)
 cd ../
 pwd
 ls
-snooty build $pwd
+/home/docsworker/.local/bin/snooty build $pwd
 #ls
 #npm run build
