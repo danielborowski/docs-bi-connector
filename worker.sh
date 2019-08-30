@@ -3,6 +3,6 @@ pwd=$(pwd)
 cd ../
 pwd
 ls
-snooty build $pwd
+#snooty build $pwd
 #ls
 #npm run build
