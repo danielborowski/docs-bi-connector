@@ -1,6 +1,6 @@
 #!/bin/sh
-pwd;
-cd ../snooty;
-ls;
-npm run build;
-make stage;
+pwd=$(pwd)
+cd ../
+snooty build $pwd
+#ls
+#npm run build
