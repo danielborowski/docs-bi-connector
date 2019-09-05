@@ -16,5 +16,4 @@ echo "------"
 ls
 echo "------"
 mkdir -p $repoDir/build/$GIT_BRANCH/html
-echo "${repoDir} ${snootyDir} $(pwd)"
-cp -r $snootyDir/public $repoDir/build/$GIT_BRANCH/html
+cp -r $repoDir/snooty/public $repoDir/build/$GIT_BRANCH/html
