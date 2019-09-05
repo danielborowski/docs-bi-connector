@@ -8,7 +8,7 @@ ls
 echo "------"
 cd ..
 snootyDir=$(pwd)/snooty
-cp $snootyDir $repoDir
+cp -r $snootyDir $repoDir
 cd $repoDir
 echo "------"
 ls
