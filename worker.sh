@@ -15,5 +15,5 @@ npm run build
 echo "------"
 ls
 echo "------"
-#mkdir -p $repoDir/public/$GIT_BRANCH/html
-#cp -r $snootyDir/public $repoDir/build/$GIT_BRANCH/html
+mkdir -p $repoDir/build/$GIT_BRANCH/html
+cp -r $snootyDir/public $repoDir/build/$GIT_BRANCH/html
