@@ -13,5 +13,5 @@ cd $repoDir
 echo "------"
 ls
 echo "------"
-cd snooty
+cd snooty 
 npm run build
