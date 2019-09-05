@@ -1,17 +1,15 @@
 #!/bin/sh
-repoDir=$(pwd)
+#repoDir=$(pwd)
 #snooty build $pwd || exit 0
 #npm run build
 
-pwd
-ls
-echo "------"
+GIT_BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
+
+repoDir=$(pwd)
 cd ..
 snootyDir=$(pwd)/snooty
 cp -r $snootyDir $repoDir
-cd $repoDir
-echo "------"
-ls
-echo "------"
-cd snooty 
-npm run build
+cd $repoDir/snooty
+#npm run build
+mkdir -p $repoDir/public/$GIT_BRANCH/html
+cp -r $snootyDir/public $repoDir/build/$GIT_BRANCH/html
