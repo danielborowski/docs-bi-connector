@@ -3,7 +3,7 @@
 #snooty build $pwd || exit 0
 #npm run build
 
-GIT_BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
+GIT_BRANCH=blabla
 
 repoDir=$(pwd)
 cd ..
