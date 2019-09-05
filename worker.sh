@@ -14,6 +14,7 @@ npm run build
 echo "------"
 ls
 echo "------"
+cp $repoDir/snooty/.env.production $repoDir
 cp $repoDir/snooty/Makefile $repoDir
 
 
