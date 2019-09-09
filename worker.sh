@@ -2,10 +2,6 @@
 #repoDir=$(pwd)
 #snooty build $pwd || exit 0
 #npm run build
- 
-export GATSBY_SITE="guides"
-export PARSER_USER="sophstad"
-export PARSER_BRANCH="master"
 
 repoDir=$(pwd)
 cd ..
