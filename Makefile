@@ -23,16 +23,13 @@ html: ## Builds this branch's HTML under build/<branch>/html
 	giza make html
 
 next-gen-html:
-	cp -r ${REPO_DIR}/../snooty ${REPO_DIR}
-	cd snooty
-	# setup env file
-	touch .env.production
-	echo 'GATSBY_SITE=${PROJECT}' >> .env.production
-	echo 'PARSER_USER=${USER}' >> .env.production
-	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production
-	# start build
-	npm run build
-	# move files for staging process
+	cp -r ${REPO_DIR}/../snooty ${REPO_DIR}; \
+	cd snooty; \
+	touch .env.production; \
+	echo 'GATSBY_SITE=${PROJECT}' >> .env.production; \
+	echo 'PARSER_USER=${USER}' >> .env.production; \
+	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production; \
+	npm run build; \
 	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}
 	cp ${REPO_DIR}/snooty/Makefile ${REPO_DIR}
 	cp ${REPO_DIR}/snooty/.env.production ${REPO_DIR}
