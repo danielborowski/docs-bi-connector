@@ -5,6 +5,7 @@ PRODUCTION_URL="https://docs.mongodb.com"
 STAGING_BUCKET=docs-mongodb-org-staging
 PRODUCTION_BUCKET=docs-bi-connector-prod
 PROJECT=bi-connector
+REPO_DIR=$(pwd)
 
 # Parse our published-branches configuration file to get the name of
 # the current "stable" branch. This is weird and dumb, yes.
@@ -20,6 +21,21 @@ help: ## Show this help message
 
 html: ## Builds this branch's HTML under build/<branch>/html
 	giza make html
+
+next-gen-html:
+	cp -r ${REPO_DIR}/../snooty ${REPO_DIR}
+	cd snooty
+	# setup env file
+	touch .env.production
+	echo 'GATSBY_SITE=${PROJECT}' >> .env.production
+	echo 'PARSER_USER=${USER}' >> .env.production
+	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production
+	# start build
+	npm run build
+	# move files for staging process
+	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}
+	cp ${REPO_DIR}/snooty/Makefile ${REPO_DIR}
+	cp ${REPO_DIR}/snooty/.env.production ${REPO_DIR}
 
 publish: ## Builds this branch's publishable HTML and other artifacts under build/public
 	giza make publish
