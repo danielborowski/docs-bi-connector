@@ -4,7 +4,7 @@ STAGING_URL="https://docs-mongodborg-staging.corp.mongodb.com"
 PRODUCTION_URL="https://docs.mongodb.com"
 STAGING_BUCKET=docs-mongodb-org-staging
 PRODUCTION_BUCKET=docs-bi-connector-prod
-PROJECT=guides
+PROJECT=cloud
 REPO_DIR=$(shell pwd)
 
 # Parse our published-branches configuration file to get the name of
@@ -30,8 +30,7 @@ next-gen-html:
 	echo 'PARSER_USER=${USER}' >> .env.production; \
 	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production; \
 	npm run build; \
-	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}; \
-	ls;
+	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR};
 
 publish: ## Builds this branch's publishable HTML and other artifacts under build/public
 	giza make publish
