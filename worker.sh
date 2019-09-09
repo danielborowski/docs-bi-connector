@@ -11,11 +11,11 @@ snootyDir=$rootDir/snooty
 cp $repoDir/snooty/.env.production $repoDir
 cp $repoDir/snooty/Makefile $repoDir
 
-echo 'GATSBY_SITE="guides"' >> $repoDir/.env.production
+echo 'GATSBY_SITE="cloud"' >> $repoDir/.env.production
 echo 'PARSER_USER="sophstad"' >> $repoDir/.env.production
 echo 'PARSER_BRANCH="master"' >> $repoDir/.env.production
 
-export GATSBY_SITE="guides"
+export GATSBY_SITE="cloud"
 export PARSER_USER="sophstad"
 export PARSER_BRANCH="master"
 
