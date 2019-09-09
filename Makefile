@@ -6,6 +6,7 @@ STAGING_BUCKET=docs-mongodb-org-staging
 PRODUCTION_BUCKET=docs-bi-connector-prod
 PROJECT=bi-connector
 REPO_DIR=$(shell pwd)
+LS=$(shell ls)
 
 # Parse our published-branches configuration file to get the name of
 # the current "stable" branch. This is weird and dumb, yes.
@@ -30,7 +31,7 @@ next-gen-html:
 	echo 'GATSBY_SITE=${PROJECT}' >> .env.production
 	echo 'PARSER_USER=${USER}' >> .env.production
 	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production
-	$(shell ls)
+	${LS}
 	# start build
 	#npm run build
 	# move files for staging process
