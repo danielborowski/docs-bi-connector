@@ -3,18 +3,18 @@
 #snooty build $pwd || exit 0
 #npm run build
 
+export GATSBY_SITE="guides"
+export PARSER_USER="sophstad"
+export PARSER_BRANCH="master"
+
 repoDir=$(pwd)
 cd ..
 rootDir=$(pwd)
 snootyDir=$rootDir/snooty
 
 cp -r $snootyDir $repoDir
-cd $repoDir/snooty
-
-export GATSBY_SITE="guides"
-export PARSER_USER="sophstad"
-export PARSER_BRANCH="master"
-
+cd $repoDir
+cd snooty
 npm run build
 echo "------"
 ls
