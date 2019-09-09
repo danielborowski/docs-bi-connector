@@ -5,7 +5,7 @@ PRODUCTION_URL="https://docs.mongodb.com"
 STAGING_BUCKET=docs-mongodb-org-staging
 PRODUCTION_BUCKET=docs-bi-connector-prod
 PROJECT=bi-connector
-REPO_DIR=$(pwd)
+REPO_DIR=$(shell pwd)
 
 # Parse our published-branches configuration file to get the name of
 # the current "stable" branch. This is weird and dumb, yes.
