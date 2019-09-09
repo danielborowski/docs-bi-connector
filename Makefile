@@ -30,14 +30,12 @@ next-gen-html:
 	echo 'GATSBY_SITE=${PROJECT}' >> .env.production
 	echo 'PARSER_USER=${USER}' >> .env.production
 	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production
-	FILES=$(shell ls)
-	echo $(FILES)
 	# start build
-	#npm run build
+	npm run build
 	# move files for staging process
-	#cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}
-	#cp ${REPO_DIR}/snooty/Makefile ${REPO_DIR}
-	#cp ${REPO_DIR}/snooty/.env.production ${REPO_DIR}
+	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}
+	cp ${REPO_DIR}/snooty/Makefile ${REPO_DIR}
+	cp ${REPO_DIR}/snooty/.env.production ${REPO_DIR}
 
 publish: ## Builds this branch's publishable HTML and other artifacts under build/public
 	giza make publish
