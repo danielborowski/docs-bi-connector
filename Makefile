@@ -31,7 +31,7 @@ next-gen-html:
 	echo 'PARSER_USER=${USER}' >> .env.production
 	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production
 	# start build
-	npm run build
+	$(shell npm run build)
 	# move files for staging process
 	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}
 	cp ${REPO_DIR}/snooty/Makefile ${REPO_DIR}
