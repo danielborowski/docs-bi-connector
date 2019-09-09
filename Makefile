@@ -11,7 +11,7 @@ REPO_DIR=$(shell pwd)
 # the current "stable" branch. This is weird and dumb, yes.
 STABLE_BRANCH=`grep 'manual' build/docs-tools/data/${PROJECT}-published-branches.yaml | cut -d ':' -f 2 | grep -Eo '[0-9a-z.]+'`
 
-.PHONY: help html publish stage deploy deploy-search-index
+.PHONY: help html publish stage deploy deploy-search-index next-gen-html
 
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -31,7 +31,7 @@ next-gen-html:
 	echo 'PARSER_USER=${USER}' >> .env.production
 	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production
 	# start build
-	$(shell npm run build)
+	npm run build
 	# move files for staging process
 	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}
 	cp ${REPO_DIR}/snooty/Makefile ${REPO_DIR}
