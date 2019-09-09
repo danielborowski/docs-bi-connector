@@ -22,7 +22,6 @@ echo "------"
 cp $repoDir/snooty/.env.production $repoDir
 cp $repoDir/snooty/Makefile $repoDir
 
-
 #GIT_BRANCH=blabla
 #mkdir -p $repoDir/build/$GIT_BRANCH/html
 #cp -r $repoDir/snooty/public $repoDir/build/$GIT_BRANCH/html
