@@ -17,7 +17,7 @@ snootyDir=$rootDir/snooty
 cp -r $snootyDir $repoDir
 cd $repoDir
 cd snooty
-npm run build
+npm run build 
 echo "------"
 ls
 echo "------"
