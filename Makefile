@@ -23,7 +23,7 @@ html: ## Builds this branch's HTML under build/<branch>/html
 	giza make html
 
 next-gen-html:
-	cp -r ${REPO_DIR}/../snooty ${REPO_DIR}
+	cp -r "${REPO_DIR}/../snooty" ${REPO_DIR}
 	cd snooty
 	# setup env file
 	touch .env.production
