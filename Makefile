@@ -30,7 +30,7 @@ next-gen-html:
 	echo 'GATSBY_SITE=${PROJECT}' >> .env.production
 	echo 'PARSER_USER=${USER}' >> .env.production
 	echo 'PARSER_BRANCH=${GIT_BRANCH}' >> .env.production
-	ls
+	$(shell ls)
 	# start build
 	#npm run build
 	# move files for staging process
