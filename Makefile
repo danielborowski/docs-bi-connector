@@ -1,10 +1,10 @@
-GIT_BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
-USER=$(shell whoami)
+GIT_BRANCH="master"
+USER="sophstad"
 STAGING_URL="https://docs-mongodborg-staging.corp.mongodb.com"
 PRODUCTION_URL="https://docs.mongodb.com"
 STAGING_BUCKET=docs-mongodb-org-staging
 PRODUCTION_BUCKET=docs-bi-connector-prod
-PROJECT=bi-connector
+PROJECT=cloud
 REPO_DIR=$(shell pwd)
 
 # Parse our published-branches configuration file to get the name of
