@@ -15,6 +15,8 @@ echo 'GATSBY_SITE="guides"' >> $repoDir/.env.production
 echo 'PARSER_USER="sophstad"' >> $repoDir/.env.production
 echo 'PARSER_BRANCH="master"' >> $repoDir/.env.production
 
+cat $repoDir/.env.production
+
 cp -r $snootyDir $repoDir
 cd $repoDir
 cd snooty
