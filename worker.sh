@@ -8,24 +8,27 @@ cd ..
 rootDir=$(pwd)
 snootyDir=$rootDir/snooty
 
-cp $repoDir/snooty/.env.production $repoDir
-cp $repoDir/snooty/Makefile $repoDir
-
-echo 'GATSBY_SITE="cloud"' >> $repoDir/.env.production
-echo 'PARSER_USER="sophstad"' >> $repoDir/.env.production
-echo 'PARSER_BRANCH="master"' >> $repoDir/.env.production
-
-export GATSBY_SITE="cloud"
-export PARSER_USER="sophstad"
-export PARSER_BRANCH="master"
-
+# go into snooty to build
 cp -r $snootyDir $repoDir
-cd $repoDir
-cd snooty
-npm run build
-echo "------"
+cd $repoDir/snooty
+
+# create env variable for build
+touch .env.production
+echo 'GATSBY_SITE="guides"' >> .env.production
+echo 'PARSER_USER="sophstad"' >> .env.production
+echo 'PARSER_BRANCH="master"' >> .env.production
+
+# begin build
+echo "------ SNOOTY CONTENTS ------"
 ls
-echo "------"
+echo "------ BEGIN BUILD ------"
+npm run build
+echo "------ BUILD OUTPUT ------"
+ls
+
+# move files for staging process
+cp $repoDir/snooty/Makefile $repoDir
+cp $repoDir/snooty/.env.production $repoDir
 
 #GIT_BRANCH=blabla
 #mkdir -p $repoDir/build/$GIT_BRANCH/html
