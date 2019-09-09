@@ -21,6 +21,7 @@ npm run build
 echo "------"
 ls
 echo "------"
+printenv
 cp $repoDir/snooty/.env.production $repoDir
 cp $repoDir/snooty/Makefile $repoDir
 
