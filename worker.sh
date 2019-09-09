@@ -11,7 +11,7 @@ snootyDir=$rootDir/snooty
 cp -r $snootyDir $repoDir
 cd $repoDir/snooty
 
-export GATSBY_SITE="cloud"
+export GATSBY_SITE="guides"
 export PARSER_USER="sophstad"
 export PARSER_BRANCH="master"
 
