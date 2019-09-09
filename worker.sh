@@ -4,4 +4,3 @@
 #npm run build
 
 pwd;
-make next-gen-html
