@@ -32,11 +32,6 @@ next-gen-html:
 	npm run build; \
 	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}; 
 
-	echo "1 FILES-----";
-	ls ${REPO_DIR};
-	echo "2 FILES-----";
-	ls ${REPO_DIR}/public;
-
 publish: ## Builds this branch's publishable HTML and other artifacts under build/public
 	giza make publish
 	if [ ${GIT_BRANCH} = master ]; then mut-redirects config/redirects -o build/public/.htaccess; fi
