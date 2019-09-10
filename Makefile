@@ -31,6 +31,7 @@ next-gen-html:
 	echo "GATSBY_SITE=${PROJECT}" >> .env.production; \
 	echo "PARSER_USER=${USER}" >> .env.production; \
 	echo "PARSER_BRANCH=${GIT_BRANCH}" >> .env.production; \
+	echo "GATSBY_CONTENT_BRANCH=${GIT_BRANCH}" >> .env.production; \
 	npm run build; \
 	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}; 
 
