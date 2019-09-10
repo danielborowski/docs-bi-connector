@@ -28,7 +28,7 @@ next-gen-html:
 	cp -r ${REPO_DIR}/../snooty ${REPO_DIR};
 	cd snooty; \
 	touch .env.production; \
-	echo "GATSBY_SITE=${PROJECT}" >> .env.production; \
+	echo "GATSBY_SITE=docs-${PROJECT}" >> .env.production; \
 	echo "PARSER_USER=${USER}" >> .env.production; \
 	echo "PARSER_BRANCH=${GIT_BRANCH}" >> .env.production; \
 	npm run build; \
