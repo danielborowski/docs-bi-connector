@@ -20,7 +20,7 @@ help: ## Show this help message
 	@printf "  \033[36m%-18s\033[0m %s\n" 'ARGS' 'Arguments to pass to mut-publish'
 
 html: ## Builds this branch's HTML under build/<branch>/html
-	giza make html
+	giza make html 
 
 next-gen-html:
 	# snooty parse and then build-front-end
