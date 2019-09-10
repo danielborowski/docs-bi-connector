@@ -24,7 +24,15 @@ html: ## Builds this branch's HTML under build/<branch>/html
 
 next-gen-html:
 	# snooty parse and then build-front-end
-	snooty build ${REPO_DIR} || exit 0;
+	echo "k10t3mDLEk4fwtTi" | snooty build ${REPO_DIR} 'mongodb+srv://andrew:@cluster0-ylwlz.mongodb.net/test?retryWrites=true' || exit 0;
+	cp -r ${REPO_DIR}/../snooty ${REPO_DIR};
+	cd snooty; \
+	touch .env.production; \
+	echo "GATSBY_SITE=${PROJECT}" >> .env.production; \
+	echo "PARSER_USER=${USER}" >> .env.production; \
+	echo "PARSER_BRANCH=${GIT_BRANCH}" >> .env.production; \
+	npm run build; \
+	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR}; 
 
 publish: ## Builds this branch's publishable HTML and other artifacts under build/public
 	giza make publish
