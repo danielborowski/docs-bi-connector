@@ -4,9 +4,9 @@ STAGING_URL="https://docs-mongodborg-staging.corp.mongodb.com"
 PRODUCTION_URL="https://docs.mongodb.com"
 STAGING_BUCKET=docs-mongodb-org-staging
 PRODUCTION_BUCKET=docs-bi-connector-prod
-PROJECT=docs
+PROJECT=bi-connector
 REPO_DIR=$(shell pwd)
-
+ 
 # Parse our published-branches configuration file to get the name of
 # the current "stable" branch. This is weird and dumb, yes.
 STABLE_BRANCH=`grep 'manual' build/docs-tools/data/${PROJECT}-published-branches.yaml | cut -d ':' -f 2 | grep -Eo '[0-9a-z.]+'`
