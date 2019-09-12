@@ -6,6 +6,9 @@ STAGING_BUCKET=docs-mongodb-org-staging
 PRODUCTION_BUCKET=docs-bi-connector-prod
 PROJECT=bi-connector
 REPO_DIR=$(shell pwd)
+
+SNOOTY_DB_USR = $(shell printenv MONGO_ATLAS_USERNAME)
+SNOOTY_DB_PWD = $(shell printenv MONGO_ATLAS_PASSWORD)
  
 # Parse our published-branches configuration file to get the name of
 # the current "stable" branch. This is weird and dumb, yes.
@@ -24,7 +27,7 @@ html: ## Builds this branch's HTML under build/<branch>/html
 
 next-gen-html:
 	# snooty parse and then build-front-end
-	echo "k10t3mDLEk4fwtTi" | snooty build ${REPO_DIR} 'mongodb+srv://andrew:@cluster0-ylwlz.mongodb.net/test?retryWrites=true' || exit 0;
+	echo ${SNOOTY_DB_PWD} | snooty build ${REPO_DIR} "mongodb+srv://${SNOOTY_DB_USR}:@cluster0-ylwlz.mongodb.net/snooty?retryWrites=true" || exit 0;
 	cp -r ${REPO_DIR}/../snooty ${REPO_DIR};
 	cd snooty; \
 	touch .env.production; \
