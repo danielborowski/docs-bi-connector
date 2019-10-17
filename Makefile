@@ -38,13 +38,13 @@ next-gen-html:
 	npm run build; \
 	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR};
 
+next-gen-stage: ## Host online for review
+	mut-publish public ${STAGING_BUCKET} --prefix=${PROJECT} --stage ${ARGS}
+	@echo "Hosted at ${STAGING_URL}/${PROJECT}/${USER}/${GIT_BRANCH}/"
+
 publish: ## Builds this branch's publishable HTML and other artifacts under build/public
 	giza make publish
 	if [ ${GIT_BRANCH} = master ]; then mut-redirects config/redirects -o build/public/.htaccess; fi
-
-#stage: ## Host online for review
-#	mut-publish public ${STAGING_BUCKET} --prefix=${PROJECT} --stage ${ARGS}
-#	@echo "Hosted at ${STAGING_URL}/${PROJECT}/${USER}/${GIT_BRANCH}/"
 
 stage: ## Host online for review
 	mut-publish build/${GIT_BRANCH}/html ${STAGING_BUCKET} --prefix=${PROJECT} --stage ${ARGS}
