@@ -30,13 +30,11 @@ next-gen-html:
 	echo ${SNOOTY_DB_PWD} | snooty build ${REPO_DIR} "mongodb+srv://${SNOOTY_DB_USR}:@cluster0-ylwlz.mongodb.net/snooty?retryWrites=true" || exit 0;
 	cp -r ${REPO_DIR}/../../snooty ${REPO_DIR};
 	cd snooty; \
-	touch .env.production; \
-	echo "GATSBY_SITE=${PROJECT}" >> .env.production; \
-	echo "PARSER_USER=${USER}" >> .env.production; \
-	echo "PARSER_BRANCH=${GIT_BRANCH}" >> .env.production; \
-	echo "GATSBY_CONTENT_BRANCH=${GIT_BRANCH}" >> .env.production; \
+	echo "GATSBY_SITE=${PROJECT}" > .env.production; \
+	echo "GATSBY_PARSER_USER=${USER}" >> .env.production; \
+	echo "GATSBY_PARSER_BRANCH=${GIT_BRANCH}" >> .env.production; \
 	npm run build; \
-	cp -r ${REPO_DIR}/snooty/public ${REPO_DIR};
+	cp -r "${REPO_DIR}/snooty/public" ${REPO_DIR};
 
 next-gen-stage: ## Host online for review
 	mut-publish public ${STAGING_BUCKET} --prefix=${PROJECT} --stage ${ARGS}
