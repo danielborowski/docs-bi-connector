@@ -1,7 +1,7 @@
 ========================
 MongoDB Connector for BI
 ========================
-asdasd
+asdasd--------
 .. default-domain:: mongodb
 
 About the |bi|
