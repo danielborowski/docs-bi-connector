@@ -25,7 +25,7 @@ MongoDB Connector for BI Components
 The following tools are available for use with the |bi|:
 
 - :binary:`~bin.mongodrdl` generates database schema information for use
-  with the |bi|.
+  with the |bi|. 
 - :binary:`~bin.mongosqld` proxies incoming queries between SQL clients
   and a MongoDB server.
 - :binary:`~bin.mongotranslate` translates a given SQL query into a
