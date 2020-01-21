@@ -18,7 +18,7 @@ Install {+bi-short+} On Premises
 
 The |bi| can be installed on premises or hosted in MongoDB Atlas. Follow
 the guide for your platform below to install the |bi-short|, or see
-:doc:`atlas-bi-connector`.
+:doc:`atlas-bi-connector`. 
 
 Installation Guides
 -------------------
