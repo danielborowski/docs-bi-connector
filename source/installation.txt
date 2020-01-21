@@ -31,7 +31,7 @@ Supported Platforms
 |bi-short| supports the 32-bit and 64-bit versions of the following
 Windows editions:
 
-.. list-table::
+.. list-table:: 
    :widths: 40 60
    :stub-columns: 1
    :header-rows: 1
