@@ -8,7 +8,7 @@ MongoDB Connector for BI Components
    :local:
    :backlinks: noneasdasd
    :depth: 1
-   :class: singlecol
+   :class: singlecol 
 
 .. versionchanged:: 2.0
    Version 2.0 of the |bi| introduces a new architecture that replaces
