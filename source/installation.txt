@@ -39,7 +39,7 @@ Windows editions:
      - Versions
 
    * - Windows
-     - 7 or later
+     - 7 or later 
  
    * - Windows Server
      - 2008 R2 or later
