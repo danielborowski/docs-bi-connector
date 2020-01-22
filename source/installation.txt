@@ -32,7 +32,7 @@ Windows editions:
 
 .. list-table::  
    :widths: 40 60
-   :stub-columns: 1
+   :stub-columns: 1 
    :header-rows: 1
 
    * - Windows Edition
