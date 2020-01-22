@@ -11,8 +11,7 @@ Install {+bi-short+} On Premises
    :backlinks: none
    :depth: 1
    :class: singlecol
-
-.. include:: /includes/fact-bi-enterprise.rst
+   
 
 .. _installation-guides:
 
