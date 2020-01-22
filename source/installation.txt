@@ -37,8 +37,7 @@ Windows editions:
 
    * - Windows Edition
      - Versions
-
-   * - Windows
+ 
      - 7 or later 
  
    * - Windows Server
