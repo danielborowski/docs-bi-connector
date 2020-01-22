@@ -27,7 +27,7 @@ Installation Guides
 Supported Platforms
 -------------------
 
-|bi-short| supports the 32-bit and 64-bit versions of the following
+|bi-short| supports the 32-bit and 64-bit versions of the following 
 Windows editions:
 
 .. list-table::  
