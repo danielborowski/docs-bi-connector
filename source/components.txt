@@ -7,7 +7,7 @@ MongoDB Connector for BI Components
 .. contents:: On this page
    :local:
    :backlinks: noneasdasd
-   :depth: 1
+   :depth: 1as
    :class: singlecol 
 
 .. versionchanged:: 2.0
