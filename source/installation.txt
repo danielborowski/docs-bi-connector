@@ -24,7 +24,7 @@ Installation Guides
 
 .. include:: /includes/toc/dfn-list-install.rst
 
-Supported Platforms
+Supported Platformsasd
 -------------------
 
 |bi-short| supports the 32-bit and 64-bit versions of the following 
@@ -49,7 +49,7 @@ systems:
 .. list-table::
    :widths: 40 60
    :stub-columns: 1
-   :header-rows: 1 
+   :header-rows: 1 asda
 
    * - Operating System
      - Versions
