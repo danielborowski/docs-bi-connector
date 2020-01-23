@@ -22,7 +22,7 @@ the guide for your platform below to install the |bi-short|, or see
 Installation Guides 
 -------------------
 
-.. include:: /includes/toc/dfn-list-install.rst
+.. include:: /includes/toc/dfn-list-install.rst 
 
 Supported Platformsasd
 -------------------
