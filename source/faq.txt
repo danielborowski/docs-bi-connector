@@ -8,7 +8,7 @@ FAQ: The MongoDB Connector for BI
    :local:
    :backlinks: none
    :depth: 1
-   :class: singlecol
+   :class: singlecolsss
 
 Is there a cloud-hosted version of the |bi-short|?
 --------------------------------------------------
