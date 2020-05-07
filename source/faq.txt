@@ -21,7 +21,7 @@ How do I authenticate with the |bi-short|?
 .. versionchanged:: 2.0
 
    Prior to version 2.0, the |bi-short| stored its own separate set of
-   credentials.
+   credentials.s
 
    .. include:: /includes/fact-upgrade.rst
 
