@@ -1,3 +1,1 @@
-# YOUR OPTIONS ARE BELOW
-#"build-and-stage" 
-"build-aasd"
+"build-and-stage-next-gen"

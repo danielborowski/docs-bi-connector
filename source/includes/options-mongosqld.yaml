@@ -101,21 +101,62 @@ description: |
   ``admin`` and ``local`` databases.
 ---
 program: mongosqld
-name: sampleSource
+name: schemaSource
 directive: option
 args: <db-name>
+inherit:
+  name: schemaSource
+  program: _shared
+  file: options-shared.yaml
 description: |
-  .. versionadded:: 2.3
 
-  Required when :option:`--sampleMode <mongosqld --sampleMode>` is set
-  to write.   Specifies a database to store schema information.
+  .. versionadded:: 2.11
+
+  Required whenever the :option:`--schemaMode <mongosqld --schemaMode>`
+  is set. Specifies the database where the schema information is stored.
   
   .. note::
 
-     If you do not specify either a schema file with the
-     :option:`--schema` option or a database with the
-     ``--sampleSource`` option, :binary:`~bin.mongosqld` holds its
+     If you do not specify any of the :option:`--schema`,
+     :option:`--schemaMode <mongosqld --schemaMode>`, and
+     ``--schemaSource`` options, :binary:`~bin.mongosqld` holds its
      schema in memory.
+
+  .. include:: /includes/sampling-ref-chart-link.rst
+---
+program: mongosqld
+name: schemaName
+directive: option
+args: <db-name>
+default: "``defaultSchema``"
+description: |
+  .. versionadded:: 2.11    
+
+  Optional. The name of the schema to load from or write to
+  the :option:`--schemaSource <mongosqld --schemaSource>` database.
+  Specifying schema names allows you to store multiple schemas in
+  the :option:`--schemaSource <mongosqld --schemaSource>` database.
+  The behavior depends on on the value of
+  :option:`--schemaMode <mongosqld --schemaMode>`:
+
+  .. list-table::
+     :widths: 30 70
+     :header-rows: 1
+
+     * - :option:`--schemaMode <mongosqld --schemaMode>` Value
+       - ``--schemaName`` Behavior
+
+     * - ``custom``
+       - The name of the schema to load from the database specified
+         by the :option:`--schemaSource <mongosqld --schemaSource>`
+         option.
+
+     * - ``auto``
+       - The name of the schema to write to the :option:`--schemaSource
+         <mongosqld --schemaSource>` database after the |bi-short|
+         samples the schema on startup.
+
+  If not specified, defaults to ``defaultSchema``.
 
   .. include:: /includes/sampling-ref-chart-link.rst
 
@@ -127,7 +168,7 @@ args: <number>
 description: |
   .. versionadded:: 2.3
 
-  The number of documents per database to sample when gathering schema
+  The number of documents per namespace to sample when gathering schema
   information.
   
   Set :option:`--sampleSize` to ``0`` to include all
@@ -139,48 +180,57 @@ description: |
 default: 1000  
 ---
 program: mongosqld
-name: sampleMode
+name: schemaMode
 directive: option
-args: <[read|write]>
+args: <[custom|auto]>
 description: |
-  .. versionadded:: 2.3
+  .. versionadded:: 2.11
 
-  Specifies whether :binary:`~bin.mongosqld` writes schema information
-  to the MongoDB database named in the :option:`--sampleSource
-  <mongosqld --sampleSource>` option or only reads previously sampled
-  schema information from it.
+  Configures the :ref:`sampling mode <sampling-mode-chart>` of
+  :binary:`~bin.mongosqld`. Must be used with the
+  :option:`--schemaSource <mongosqld --schemaSource>` option.
+  The following values determine the sampling behavior:
 
-  If you use the :option:`--sampleSource <mongosqld --sampleSource>`
-  option to specify a database to store schema information, set
-  :option:`--sampleMode <mongosqld --sampleMode>` to ``write`` to
-  allow :binary:`~bin.mongosqld` to persist data in the specified
-  database.
-  
+  .. list-table::
+     :widths: 30 70
+     :header-rows: 1
+
+     * - Value
+       - ``--schemaMode`` Behavior
+
+     * - ``custom``
+       - :binary:`~bin.mongosqld` reads a stored
+         schema from the MongoDB database specified by the
+         :option:`--schemaSource <mongosqld --schemaSource>` option.
+
+     * - ``auto``
+       - :binary:`~bin.mongosqld`
+         samples the schema and writes the schema data to the MongoDB
+         database specified by the
+         :option:`--schemaSource <mongosqld --schemaSource>` option.
+
+  For more information on configuring the sample mode, see the
+  :ref:`sampling-mode-chart`.
+
   .. include:: /includes/fact-samplemode-write-permission.rst
 
-  .. include:: /includes/sampling-ref-chart-link.rst
-
-default: read
+default: "``custom``"
 ---
 program: mongosqld
-name: sampleRefreshIntervalSecs
+name: schemaRefreshIntervalSecs
 directive: option
 args: <number>
 description: |
-  .. versionadded:: 2.3
+  .. versionchanged:: 2.11
+
+     Renamed ``--sampleRefreshIntervalSecs`` to
+     ``--schemaRefreshIntervalSecs``
 
   The interval in seconds at which :binary:`~bin.mongosqld` re-samples
   data to create its schema. The default value is ``0``, which means
   that after the initial sampling no re-sampling occurs for the
   duration of the connection. The specified value must be a positive
   integer.
-
-  If you specify a non-zero value for ``--sampleRefreshIntervalSecs``
-  and a schema database with the :option:`--sampleSource
-  <mongosqld --sampleSource>` option,
-  you must also set the :option:`--sampleMode <mongosqld --sampleMode>`
-  option to ``write``. Otherwise, :binary:`~bin.mongosqld` halts with
-  an error.
 
   .. include:: /includes/fact-resample-schema-data.rst
 
@@ -217,9 +267,9 @@ description: |
   The {{role}} option supports the following options within the connection
   string:
 
-  - :urioption:`urioption.readPreference`
-  - :urioption:`urioption.readPreferenceTags`
-  - :urioption:`urioption.replicaSet`
+  - :urioption:`~urioption.readPreference`
+  - :urioption:`~urioption.readPreferenceTags`
+  - :urioption:`~urioption.replicaSet`
   - ``connect``
 
   For more information on these URI options see
@@ -743,6 +793,20 @@ optional: true
 default: First IP address for :setting:`net.bindIp`.
 ---
 program: mongosqld
+name: gssapiConstrainedDelegation
+directive: option
+description: |
+  .. versionadded:: 2.11
+
+  Use proxy credentials for Kerberos authorization, enabling constrained
+  delegation. Requires :binary:`~bin.mongosqld` service credentials to be
+  present in the client keytab as well as the service keytab. See
+  :ref:`configure-kerberos` for more information about Kerberos configuration.
+
+optional: true
+default: false
+---
+program: mongosqld
 name: gssapiServiceName
 directive: option
 args: <service-name>
@@ -826,6 +890,37 @@ description: |
      |    1 |    3 | apple  |     1 |
      |    1 |    3 | pear   |     2 |
      +------+------+--------+-------+
+
+optional: true
+---
+program: mongosqld
+name: setParameter
+directive: option
+args: <parameter>
+description: |
+  .. list-table::
+   :header-rows: 1
+   :widths: 50 10 40
+
+   * - Parameter
+     - Type
+     - Corresponds to
+
+   * - ``"polymorphic_type_conversion_mode=<value>"``
+     - string
+     - .. include:: /includes/fact-polymorphic-type-conversion-mode.rst
+
+   * - ``"type_conversion_mode=<value>"``
+     - string
+     - .. include:: /includes/fact-type-conversion-mode.rst
+
+  The following example starts :binary:`~bin.mongosqld` and uses
+  the ``--setParameter`` option to specify the
+  :doc:`type conversion mode </reference/type-conversion>`:
+
+  .. code-block:: sh
+
+      mongosqld --setParameter "type_conversion_mode=mongosql"
 
 optional: true
 ...
